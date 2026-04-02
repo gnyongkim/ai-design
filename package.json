@@ -1,11 +1,12 @@
 {
-  "name": "ai-design-temp",
+  "name": "ai-design",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "tokens:build": "node sd.config.mjs",
+    "dev": "npm run tokens:build && vite",
+    "build": "npm run tokens:build && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
