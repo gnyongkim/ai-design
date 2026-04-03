@@ -13,7 +13,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
         <Header />
         
         {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto pb-[calc(env(safe-area-inset-bottom)+80px)] md:pb-0">
+        <main className="relative flex-1 overflow-y-auto w-full flex flex-col">
           {children}
         </main>
         

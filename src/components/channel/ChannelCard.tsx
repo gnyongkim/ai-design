@@ -1,0 +1,78 @@
+import { MapPin, Users, Timer } from "lucide-react";
+
+export interface ChannelCardProps {
+  id: number;
+  title: string;
+  location: string;
+  pace: string;
+  distance: string;
+  currentMembers: number;
+  maxMembers: number;
+  isLive?: boolean;
+  bgUrl: string;
+}
+
+export function ChannelCard({ title, location, pace, distance, currentMembers, maxMembers, isLive = false, bgUrl }: ChannelCardProps) {
+  return (
+    <div className="group relative flex h-[240px] w-full cursor-pointer flex-col justify-end overflow-hidden rounded-[24px] bg-black shadow-sm transition-all duration-300 active:scale-[0.97] hover:shadow-xl hover:-translate-y-1 mt-1">
+      {/* 백그라운드 실제 이미지 */}
+      <img 
+        src={bgUrl} 
+        alt={title} 
+        className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:opacity-100" 
+      />
+
+      {/* 깊이감을 위한 멀티플 그라데이션 오버레이 */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-transparent opacity-50" />
+
+      {/* 프리미엄 이너 링 (유리 가장자리 반사 효과) */}
+      <div className="absolute inset-0 z-20 rounded-[24px] border border-white/20 mix-blend-overlay pointer-events-none" />
+
+      {/* Content Area */}
+      <div className="relative z-10 flex w-full flex-col gap-4 p-5">
+        
+        {/* Top Area: Live Badge (우측 상단 고정 플로팅) */}
+        <div className="absolute top-4 right-4 flex items-center">
+          {isLive && (
+            <div className="flex h-8 items-center gap-2 rounded-full bg-black/40 border border-white/10 px-3.5 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-80" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_var(--color-primary)]" />
+              </span>
+              <span className="text-[12px] font-black tracking-widest text-white drop-shadow-md">LIVE</span>
+            </div>
+          )}
+        </div>
+
+        {/* Text Info */}
+        <div className="flex flex-col gap-1.5 mt-auto">
+          <div className="flex items-center gap-1.5 text-primary drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <MapPin size={16} className="stroke-[2.5px]" />
+            <span className="text-[14px] font-bold tracking-tight text-white/90">{location}</span>
+          </div>
+          <h3 className="text-[24px] font-black leading-tight tracking-tight text-white line-clamp-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            {title}
+          </h3>
+        </div>
+
+        {/* Meta / Metrics (Glassmorphism Pills) */}
+        <div className="flex items-center gap-2 mt-1">
+          <div className="flex items-center gap-1.5 rounded-xl bg-white/10 px-3.5 py-2 backdrop-blur-md border border-white/5">
+            <Users size={16} className="stroke-[2.5px] text-white/70" />
+            <span className="text-[14px] font-bold text-white/70 tracking-tight"><span className="text-white">{currentMembers}</span> / {maxMembers}</span>
+          </div>
+          
+          <div className="flex items-center gap-1.5 rounded-xl bg-white/10 px-3.5 py-2 backdrop-blur-md border border-white/5">
+            <Timer size={16} className="stroke-[2.5px] text-white/70" />
+            <span className="text-[14px] font-bold text-white tracking-tighter">{pace} <span className="text-[11px] font-semibold text-white/60 pl-0.5">/km</span></span>
+          </div>
+          
+          <div className="ml-auto flex items-center rounded-xl bg-primary px-4 py-2 text-[14px] font-black text-primary-foreground shadow-[0_2px_10px_var(--color-primary)]">
+            {distance}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

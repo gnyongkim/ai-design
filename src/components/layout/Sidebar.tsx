@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { navItems } from "./nav";
 import { cn } from "../../lib/utils";
 import { Logo } from "../ui/Logo";
 import { Settings } from "lucide-react";
 
 export function Sidebar() {
-  const [activePath, setActivePath] = useState("/");
+  const location = useLocation();
 
   return (
     <aside className="hidden h-[100dvh] w-[88px] flex-col items-center justify-between border-r border-border/60 bg-sidebar py-6 md:flex shrink-0">
@@ -17,26 +17,26 @@ export function Sidebar() {
       {/* Nav List */}
       <nav className="flex flex-1 flex-col items-center justify-center gap-4 w-full">
         {navItems.map((item) => {
-          const isActive = activePath === item.path;
+          const isActive = location.pathname === item.path;
           const Icon = item.icon;
 
           if (item.isFloating) {
             return (
-              <button
+              <Link
                 key={item.path}
-                onClick={() => setActivePath(item.path)}
+                to={item.path}
                 className="my-5 flex h-[56px] w-[56px] items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_4px_16px_rgb(0,0,0,0.2)] ring-[4px] ring-background transition-all hover:-translate-y-1 hover:shadow-[0_8px_24px_rgb(0,0,0,0.3)] active:scale-95 group"
                 aria-label={item.label}
               >
                 <Icon size={26} className="fill-current transition-transform group-active:scale-90" />
-              </button>
+              </Link>
             );
           }
 
           return (
             <div key={item.path} className="relative w-full flex justify-center group outline-none">
-              <button
-                onClick={() => setActivePath(item.path)}
+              <Link
+                to={item.path}
                 className={cn(
                   "flex w-[64px] flex-col items-center justify-center gap-1.5 rounded-[18px] py-3 transition-colors",
                   isActive ? "bg-sidebar-accent text-primary" : "text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent/50"
@@ -45,7 +45,7 @@ export function Sidebar() {
               >
                 <Icon size={24} className={cn("transition-transform group-hover:scale-110 group-active:scale-95", isActive ? "stroke-[2.5px]" : "stroke-[1.5px]")} />
                 <span className="text-[10px] font-bold tracking-tight">{item.label}</span>
-              </button>
+              </Link>
               
               {/* Active Indicator Pill */}
               {isActive && (

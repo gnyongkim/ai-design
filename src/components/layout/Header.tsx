@@ -3,7 +3,7 @@ import { Logo } from "../ui/Logo";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 flex h-[56px] w-full shrink-0 items-center justify-between border-b border-border/40 bg-background/70 px-5 backdrop-blur-2xl md:hidden">
+    <header className="sticky top-0 z-40 flex h-14 w-full shrink-0 items-center justify-between border-b border-border bg-background/90 px-5 backdrop-blur-md md:hidden">
       <div className="flex items-center gap-2.5">
         <Logo className="h-8 w-8 rounded-[8px]" />
         <div className="text-[20px] font-black text-foreground tracking-tighter mt-0.5">Ai-Design</div>

@@ -14,6 +14,7 @@
 
 ### 2. Publishing Rules (퍼블리싱 절대 규칙)
 - **하드코딩 엄금**: `5px`, `#ccc` 같은 임의의 매직 넘버/컬러 기입을 절대 금지합니다.
+- **아이콘 표준 (Iconography)**: shadcn/ui 에코시스템과의 100% 호환성 및 벡터 선 두께(`strokeWidth`) 커스터마이징의 통일성을 위해, 프로젝트 내 모든 아이콘은 **반드시 `lucide-react` 만을 사용**합니다. 타 아이콘 라이브러리의 혼용을 절대 금지합니다.
 - **광학적 정렬 (Optical Margin Alignment)**: 터치 타겟(패딩)과 눈에 보이는 시각적 아이콘 크기가 다를 경우, 물리적 여백이 아닌 시각적 밸런스를 기준으로 여백을 보정합니다. (예: 음수 마진 활용)
 - **Micro-Interaction**: 모든 버튼, 링크, 인터랙티브 요소는 Hover, Active 시 스케일 변화나 색상 변화 등의 명확한 시각적 피드백(터치 애니메이션)을 구현해야 합니다. 전체 UI 레이아웃이 떨리지 않도록 가급적 내부 아이콘/텍스트 요소에 단독으로 트랜지션을 주어야 합니다.
 
@@ -42,7 +43,10 @@
 - **프로젝트 명칭**: Ai-Design
 - **핵심 비즈니스**: 지도 기반 실시간 피트니스 운동 + 스포셜 채널 + 커머스 앱
 - **테마 무드**: 스포티하고 에너제틱한 피트니스 앱 (Dark Mode 기반 프리미엄 룩)
-- **프레임워크**: React + TypeScript + Vite + Tailwind CSS v4 + shadcn/ui
+- **프레임워크**: React + TypeScript + Vite + Tailwind CSS v4 + shadcn/ui + lucide-react
+
+### 프로젝트 주요 디자인 의사결정 (Design Decisions)
+- **Glassmorphism 보다는 Solid 프레임 지향**: 카드가 투과되는 오버레이 레이아웃(Absolute+투명도)보다는, 콘텐츠 스크롤 영역이 명확히 단절되어 구조적 안정감을 주는 Solid 형태의 헤더/푸터 UI를 더 선호합니다.
 
 ### 주요 레이아웃 구조 현황
 1. **AppLayout (`/layout/AppLayout.tsx`)**: 뷰포트 전체(100dvh)를 감싸는 반응형 최상위 1-Depth 래퍼.
