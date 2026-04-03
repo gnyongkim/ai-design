@@ -3,6 +3,10 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
+@source "../components/**/*.{ts,tsx}";
+@source "../lib/**/*.{ts,tsx}";
+@source "../../publishing/src/**/*.{ts,tsx}";
+
 @import "./generated/light.css";
 @import "./generated/dark.css";
 
