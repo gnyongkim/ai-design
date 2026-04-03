@@ -8,7 +8,7 @@ export function ChannelTabs({ activeTab, onTabChange }: { activeTab: 'my' | 'exp
           onClick={() => onTabChange('explore')}
           className={cn(
             "relative flex h-14 flex-1 items-center justify-center transition-colors px-6",
-            activeTab === 'explore' ? "text-foreground font-black text-[17px]" : "text-muted-foreground opacity-60 hover:opacity-100 font-bold text-[16px]"
+            activeTab === 'explore' ? "text-foreground font-black text-lg" : "text-muted-foreground opacity-60 hover:opacity-100 font-bold text-base"
           )}
         >
           탐색
@@ -18,7 +18,7 @@ export function ChannelTabs({ activeTab, onTabChange }: { activeTab: 'my' | 'exp
           onClick={() => onTabChange('my')}
           className={cn(
             "relative flex h-14 flex-1 items-center justify-center transition-colors px-6",
-            activeTab === 'my' ? "text-foreground font-black text-[17px]" : "text-muted-foreground opacity-60 hover:opacity-100 font-bold text-[16px]"
+            activeTab === 'my' ? "text-foreground font-black text-lg" : "text-muted-foreground opacity-60 hover:opacity-100 font-bold text-base"
           )}
         >
           내 채널

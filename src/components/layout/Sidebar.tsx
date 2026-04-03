@@ -8,7 +8,7 @@ export function Sidebar() {
   const location = useLocation();
 
   return (
-    <aside className="hidden h-[100dvh] w-[88px] flex-col items-center justify-between border-r border-border/60 bg-sidebar py-6 md:flex shrink-0">
+    <aside className="hidden h-dvh w-22 flex-col items-center justify-between border-r border-border/60 bg-sidebar py-6 md:flex shrink-0">
       {/* Logo Area */}
       <div className="flex flex-col items-center gap-2">
         <Logo className="h-11 w-11 rounded-2xl shadow-sm" />
@@ -25,7 +25,7 @@ export function Sidebar() {
               <Link
                 key={item.path}
                 to={item.path}
-                className="my-5 flex h-[56px] w-[56px] items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_4px_16px_rgb(0,0,0,0.2)] ring-[4px] ring-background transition-all hover:-translate-y-1 hover:shadow-[0_8px_24px_rgb(0,0,0,0.3)] active:scale-95 group"
+                className="my-5 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_4px_16px_rgb(0,0,0,0.2)] ring-4 ring-background transition-all hover:-translate-y-1 hover:shadow-[0_8px_24px_rgb(0,0,0,0.3)] active:scale-95 group"
                 aria-label={item.label}
               >
                 <Icon size={26} className="fill-current transition-transform group-active:scale-90" />
@@ -38,13 +38,13 @@ export function Sidebar() {
               <Link
                 to={item.path}
                 className={cn(
-                  "flex w-[64px] flex-col items-center justify-center gap-1.5 rounded-[18px] py-3 transition-colors",
+                  "flex w-16 flex-col items-center justify-center gap-1.5 rounded-[18px] py-3 transition-colors",
                   isActive ? "bg-sidebar-accent text-primary" : "text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent/50"
                 )}
                 aria-label={item.label}
               >
                 <Icon size={24} className={cn("transition-transform group-hover:scale-110 group-active:scale-95", isActive ? "stroke-[2.5px]" : "stroke-[1.5px]")} />
-                <span className="text-[10px] font-bold tracking-tight">{item.label}</span>
+                <span className="text-[0.65rem] font-bold tracking-tight">{item.label}</span>
               </Link>
               
               {/* Active Indicator Pill */}
@@ -57,7 +57,7 @@ export function Sidebar() {
       </nav>
 
       {/* Bottom Area (Settings) */}
-      <button className="flex h-11 w-11 items-center justify-center rounded-full bg-muted/60 text-muted-foreground transition-all hover:bg-muted hover:text-foreground active:scale-95">
+      <button className="flex h-11 w-11 items-center justify-center rounded-full bg-muted/60 text-muted-foreground transition-all hover:bg-muted hover:text-foreground active:scale-95" aria-label="Settings">
         <Settings size={20} className="stroke-[1.5px]" />
       </button>
     </aside>

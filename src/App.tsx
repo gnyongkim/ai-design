@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AppLayout } from "./components/layout/AppLayout";
 import { ChannelPage } from "./pages/channel/ChannelPage";
+import { ChannelDetailPage } from "./pages/channel/ChannelDetailPage";
 import { PlaceholderPage } from "./pages/shared/PlaceholderPage";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<PlaceholderPage title="대시보드 (Home)" />} />
           <Route path="/social" element={<ChannelPage />} />
+          <Route path="/social/:id" element={<ChannelDetailPage />} />
           <Route path="/go" element={<PlaceholderPage title="운동 모드 (GO)" />} />
           <Route path="/shop" element={<PlaceholderPage title="커머스 스토어" />} />
           <Route path="/profile" element={<PlaceholderPage title="내 프로필" />} />

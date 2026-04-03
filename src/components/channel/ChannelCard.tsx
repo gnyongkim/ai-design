@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MapPin, Users, Timer } from "lucide-react";
 
 export interface ChannelCardProps {
@@ -12,9 +13,9 @@ export interface ChannelCardProps {
   bgUrl: string;
 }
 
-export function ChannelCard({ title, location, pace, distance, currentMembers, maxMembers, isLive = false, bgUrl }: ChannelCardProps) {
+export function ChannelCard({ id, title, location, pace, distance, currentMembers, maxMembers, isLive = false, bgUrl }: ChannelCardProps) {
   return (
-    <div className="group relative flex h-[240px] w-full cursor-pointer flex-col justify-end overflow-hidden rounded-[24px] bg-black shadow-sm transition-all duration-300 active:scale-[0.97] hover:shadow-xl hover:-translate-y-1 mt-1">
+    <Link to={`/social/${id}`} className="group relative flex h-60 w-full cursor-pointer flex-col justify-end overflow-hidden rounded-[24px] bg-black shadow-sm transition-all duration-300 active:scale-[0.97] hover:shadow-xl hover:-translate-y-1 mt-1">
       {/* 백그라운드 실제 이미지 */}
       <img 
         src={bgUrl} 
@@ -40,7 +41,7 @@ export function ChannelCard({ title, location, pace, distance, currentMembers, m
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-80" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_var(--color-primary)]" />
               </span>
-              <span className="text-[12px] font-black tracking-widest text-white drop-shadow-md">LIVE</span>
+              <span className="text-xs font-black tracking-widest text-white drop-shadow-md">LIVE</span>
             </div>
           )}
         </div>
@@ -49,9 +50,9 @@ export function ChannelCard({ title, location, pace, distance, currentMembers, m
         <div className="flex flex-col gap-1.5 mt-auto">
           <div className="flex items-center gap-1.5 text-primary drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             <MapPin size={16} className="stroke-[2.5px]" />
-            <span className="text-[14px] font-bold tracking-tight text-white/90">{location}</span>
+            <span className="text-sm font-bold tracking-tight text-white/90">{location}</span>
           </div>
-          <h3 className="text-[24px] font-black leading-tight tracking-tight text-white line-clamp-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+          <h3 className="text-2xl font-black leading-tight tracking-tight text-white line-clamp-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             {title}
           </h3>
         </div>
@@ -60,19 +61,19 @@ export function ChannelCard({ title, location, pace, distance, currentMembers, m
         <div className="flex items-center gap-2 mt-1">
           <div className="flex items-center gap-1.5 rounded-xl bg-white/10 px-3.5 py-2 backdrop-blur-md border border-white/5">
             <Users size={16} className="stroke-[2.5px] text-white/70" />
-            <span className="text-[14px] font-bold text-white/70 tracking-tight"><span className="text-white">{currentMembers}</span> / {maxMembers}</span>
+            <span className="text-sm font-bold text-white/70 tracking-tight"><span className="text-white">{currentMembers}</span> / {maxMembers}</span>
           </div>
           
           <div className="flex items-center gap-1.5 rounded-xl bg-white/10 px-3.5 py-2 backdrop-blur-md border border-white/5">
             <Timer size={16} className="stroke-[2.5px] text-white/70" />
-            <span className="text-[14px] font-bold text-white tracking-tighter">{pace} <span className="text-[11px] font-semibold text-white/60 pl-0.5">/km</span></span>
+            <span className="text-sm font-bold text-white tracking-tighter">{pace} <span className="text-xs font-semibold text-white/60 pl-0.5">/km</span></span>
           </div>
           
-          <div className="ml-auto flex items-center rounded-xl bg-primary px-4 py-2 text-[14px] font-black text-primary-foreground shadow-[0_2px_10px_var(--color-primary)]">
+          <div className="ml-auto flex items-center rounded-xl bg-primary px-4 py-2 text-sm font-black text-primary-foreground shadow-[0_2px_10px_var(--color-primary)]">
             {distance}
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

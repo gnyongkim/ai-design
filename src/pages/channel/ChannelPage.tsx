@@ -8,11 +8,11 @@ import { Plus } from "lucide-react";
 
 // 실제 배경 이미지가 추가된 더미 데이터
 const DUMMY_CHANNELS: ChannelCardProps[] = [
-  { id: 1, title: "여의도 쾌속 질주", location: "여의도 한강공원", pace: "4'30\"", distance: "10km", currentMembers: 8, maxMembers: 10, isLive: true, bgUrl: "https://images.unsplash.com/photo-1552674605-15c2145efa38?auto=format&fit=crop&q=80&w=800" },
-  { id: 2, title: "남산 업힐 극복방", location: "남산도서관 코스", pace: "6'00\"", distance: "5km", currentMembers: 14, maxMembers: 20, isLive: true, bgUrl: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800" },
-  { id: 3, title: "초보환영 수다런", location: "반포 한강공원", pace: "7'00\"", distance: "3km", currentMembers: 2, maxMembers: 5, isLive: false, bgUrl: "https://images.unsplash.com/photo-1530143311094-34d807799e8f?auto=format&fit=crop&q=80&w=800" },
-  { id: 4, title: "오운완 페이스 메이킹", location: "석촌호수", pace: "5'15\"", distance: "8km", currentMembers: 1, maxMembers: 4, isLive: false, bgUrl: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=800" },
-  { id: 5, title: "새벽 공기 마시며", location: "서울숲", pace: "6'30\"", distance: "5km", currentMembers: 3, maxMembers: 6, isLive: false, bgUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800" },
+  { id: 1, title: "여의도 쾌속 질주", location: "여의도 한강공원", pace: "4'30\"", distance: "10km", currentMembers: 8, maxMembers: 10, isLive: true, bgUrl: "https://picsum.photos/id/1015/800/600" },
+  { id: 2, title: "남산 업힐 극복방", location: "남산도서관 코스", pace: "6'00\"", distance: "5km", currentMembers: 14, maxMembers: 20, isLive: true, bgUrl: "https://picsum.photos/id/1016/800/600" },
+  { id: 3, title: "초보환영 수다런", location: "반포 한강공원", pace: "7'00\"", distance: "3km", currentMembers: 2, maxMembers: 5, isLive: false, bgUrl: "https://picsum.photos/id/1018/800/600" },
+  { id: 4, title: "오운완 페이스 메이킹", location: "석촌호수", pace: "5'15\"", distance: "8km", currentMembers: 1, maxMembers: 4, isLive: false, bgUrl: "https://picsum.photos/id/1019/800/600" },
+  { id: 5, title: "새벽 공기 마시며", location: "서울숲", pace: "6'30\"", distance: "5km", currentMembers: 3, maxMembers: 6, isLive: false, bgUrl: "https://picsum.photos/id/1020/800/600" },
 ];
 
 export function ChannelPage() {

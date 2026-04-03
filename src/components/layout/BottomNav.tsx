@@ -40,7 +40,7 @@ export function BottomNav() {
               <div className="flex h-7 items-center justify-center transition-transform group-active:scale-90">
                 <Icon size={24} className={isActive ? "stroke-[2.5px]" : "stroke-[1.5px]"} />
               </div>
-              <span className="text-[10px] leading-none">{item.label}</span>
+              <span className="text-[0.65rem] leading-none">{item.label}</span>
             </Link>
           );
         })}
