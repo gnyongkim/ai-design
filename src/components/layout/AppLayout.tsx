@@ -6,7 +6,10 @@ import { Header } from "./Header";
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
-  const isFullScreenRoute = location.pathname.startsWith('/social/') && location.pathname !== '/social';
+  const isFullScreenRoute =
+    (location.pathname.startsWith('/social/') && location.pathname !== '/social') ||
+    location.pathname === '/go/active' ||
+    location.pathname === '/go/result';
 
   return (
     <div className="flex h-[100dvh] w-full bg-background overflow-hidden relative">

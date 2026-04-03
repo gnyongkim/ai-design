@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Users, Timer } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 export interface ChannelCardProps {
   id: number;
@@ -17,10 +18,10 @@ export function ChannelCard({ id, title, location, pace, distance, currentMember
   return (
     <Link to={`/social/${id}`} className="group relative flex h-60 w-full cursor-pointer flex-col justify-end overflow-hidden rounded-[24px] bg-black shadow-sm transition-all duration-300 active:scale-[0.97] hover:shadow-xl hover:-translate-y-1 mt-1">
       {/* 백그라운드 실제 이미지 */}
-      <img 
-        src={bgUrl} 
-        alt={title} 
-        className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:opacity-100" 
+      <img
+        src={bgUrl}
+        alt={title}
+        className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:opacity-100"
       />
 
       {/* 깊이감을 위한 멀티플 그라데이션 오버레이 */}
@@ -32,17 +33,17 @@ export function ChannelCard({ id, title, location, pace, distance, currentMember
 
       {/* Content Area */}
       <div className="relative z-10 flex w-full flex-col gap-4 p-5">
-        
+
         {/* Top Area: Live Badge (우측 상단 고정 플로팅) */}
         <div className="absolute top-4 right-4 flex items-center">
           {isLive && (
-            <div className="flex h-8 items-center gap-2 rounded-full bg-black/40 border border-white/10 px-3.5 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+            <Badge variant="secondary" className="h-8 gap-2 rounded-full bg-black/40 border-white/10 px-3.5 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.5)] text-white hover:bg-black/40">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-80" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_var(--color-primary)]" />
               </span>
-              <span className="text-xs font-black tracking-widest text-white drop-shadow-md">LIVE</span>
-            </div>
+              <span className="text-xs font-black tracking-widest drop-shadow-md">LIVE</span>
+            </Badge>
           )}
         </div>
 
@@ -59,19 +60,19 @@ export function ChannelCard({ id, title, location, pace, distance, currentMember
 
         {/* Meta / Metrics (Glassmorphism Pills) */}
         <div className="flex items-center gap-2 mt-1">
-          <div className="flex items-center gap-1.5 rounded-xl bg-white/10 px-3.5 py-2 backdrop-blur-md border border-white/5">
+          <Badge variant="secondary" className="h-auto gap-1.5 rounded-xl bg-white/10 px-3.5 py-2 backdrop-blur-md border-white/5 hover:bg-white/10">
             <Users size={16} className="stroke-[2.5px] text-white/70" />
             <span className="text-sm font-bold text-white/70 tracking-tight"><span className="text-white">{currentMembers}</span> / {maxMembers}</span>
-          </div>
-          
-          <div className="flex items-center gap-1.5 rounded-xl bg-white/10 px-3.5 py-2 backdrop-blur-md border border-white/5">
+          </Badge>
+
+          <Badge variant="secondary" className="h-auto gap-1.5 rounded-xl bg-white/10 px-3.5 py-2 backdrop-blur-md border-white/5 hover:bg-white/10">
             <Timer size={16} className="stroke-[2.5px] text-white/70" />
             <span className="text-sm font-bold text-white tracking-tighter">{pace} <span className="text-xs font-semibold text-white/60 pl-0.5">/km</span></span>
-          </div>
-          
-          <div className="ml-auto flex items-center rounded-xl bg-primary px-4 py-2 text-sm font-black text-primary-foreground shadow-[0_2px_10px_var(--color-primary)]">
+          </Badge>
+
+          <Badge className="ml-auto h-auto rounded-xl px-4 py-2 text-sm font-black shadow-[0_2px_10px_var(--color-primary)]">
             {distance}
-          </div>
+          </Badge>
         </div>
       </div>
     </Link>

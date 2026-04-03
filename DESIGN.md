@@ -14,6 +14,15 @@
 
 ### 2. Publishing Rules (퍼블리싱 절대 규칙)
 - **하드코딩 엄금**: `5px`, `#ccc` 같은 임의의 매직 넘버/컬러 기입을 절대 금지합니다.
+- **shadcn/ui 우선 사용 (Component-First)**: `<button>`, `<input>`, `<div>` 등으로 직접 마크업하기 전에 반드시 shadcn/ui에 대응하는 컴포넌트가 있는지 확인하고, **있다면 shadcn/ui 컴포넌트를 사용**해야 합니다. 이를 통해 디자인 토큰 자동 연동, 접근성(aria), focus-visible 링 등 일관된 UX가 보장됩니다. 커스텀 스타일이 필요한 경우 `className` prop으로 오버라이드합니다. shadcn/ui에 대응 컴포넌트가 없는 경우(예: FAB, 커스텀 SVG 시각화, 롱프레스 인터랙션 등)에만 네이티브 HTML 요소로 직접 마크업합니다.
+  - **Button**: 모든 클릭 가능한 요소 (`<button>` 직접 사용 금지)
+  - **Badge**: 상태 표시, 태그, 라벨, 메트릭 필
+  - **Card**: 정보를 담는 컨테이너, 지표 카드
+  - **Skeleton**: 로딩 상태의 placeholder 블록
+  - **Avatar**: 사용자 프로필 이미지
+  - **AlertDialog / Dialog**: 확인 모달, 경고창
+  - **Separator**: 시각적 구분선
+  - **Input / Label / Checkbox / Switch**: 폼 요소
 - **아이콘 표준 (Iconography)**: shadcn/ui 에코시스템과의 100% 호환성 및 벡터 선 두께(`strokeWidth`) 커스터마이징의 통일성을 위해, 프로젝트 내 모든 아이콘은 **반드시 `lucide-react` 만을 사용**합니다. 타 아이콘 라이브러리의 혼용을 절대 금지합니다.
 - **광학적 정렬 (Optical Margin Alignment)**: 터치 타겟(패딩)과 눈에 보이는 시각적 아이콘 크기가 다를 경우, 물리적 여백이 아닌 시각적 밸런스를 기준으로 여백을 보정합니다. (예: 음수 마진 활용)
 - **Micro-Interaction**: 모든 버튼, 링크, 인터랙티브 요소는 Hover, Active 시 스케일 변화나 색상 변화 등의 명확한 시각적 피드백(터치 애니메이션)을 구현해야 합니다. 전체 UI 레이아웃이 떨리지 않도록 가급적 내부 아이콘/텍스트 요소에 단독으로 트랜지션을 주어야 합니다.
